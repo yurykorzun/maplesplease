@@ -22,7 +22,7 @@ public class TitleScreenManager : MonoBehaviour
         {
             var startButton = Instantiate(StartButton, new Vector3(400f, 150f, -1f), new Quaternion());
             startButton.transform.SetParent(Canvas.transform);
-            startButton.GetComponent<Button>().onClick.AddListener(delegate() { LevelManager.LoadLevel("Main"); });
+            startButton.GetComponent<Button>().onClick.AddListener(delegate() { LevelManager.LoadLevel("Playground"); });
 
             Destroy(this);
         }
