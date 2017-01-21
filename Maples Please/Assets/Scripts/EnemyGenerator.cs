@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour {
 
+	public GameRounds Rounds;
 	public Enemy EnemyPrefab;
 	public EnemyDestination Destination;
 	public EnemyCounter Counter;
@@ -12,8 +13,13 @@ public class EnemyGenerator : MonoBehaviour {
 	private List<Enemy> _enemyPool = new List<Enemy>();
 	private BoxCollider2D _boxCollider;
 
+	private bool _isCompleted;
+
 	void Start()
 	{
+		Rounds.GameCompleted += GameWasCompleted;
+		Rounds.GameOver += GameWasCompleted;
+
 		_boxCollider = GetComponent<BoxCollider2D>();
 		StartCoroutine(GenerateEnemies());
 	}
@@ -21,11 +27,27 @@ public class EnemyGenerator : MonoBehaviour {
 
 	void Update()
 	{
-		
+		if (_isCompleted) StopAllCoroutines();
+	}
+
+	private void GameWasCompleted()
+	{
+		_isCompleted = true;
+		ResetEnemies();
+	}
+
+	private void ResetEnemies()
+	{
+		foreach (var enemy in _enemyPool)
+		{
+			enemy.transform.position = transform.position;
+			enemy.gameObject.SetActive(false);
+		}
 	}
 
 	private IEnumerator GenerateEnemies()
 	{
+
 		var numberOfEmenies = Random.Range(1, 5);
 		var colliderXSize = _boxCollider.size.x;
 		var generatorXPosition = transform.position.x;

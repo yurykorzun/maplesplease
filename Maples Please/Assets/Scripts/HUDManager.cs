@@ -24,12 +24,20 @@ public class HUDManager : MonoBehaviour
 		TotalValue.text = number.ToString();
 	}
 
-	public void ResetValues()
+	public void ResetGameValues()
 	{
 		CapturedValue.text = "0";
 		MissedValue.text = "0";
 		TotalValue.text = "0";
 		RoundValue.text = "0";
+		SecondsValue.text = "0";
+	}
+
+	public void ResetRoundValues()
+	{
+		CapturedValue.text = "0";
+		MissedValue.text = "0";
+		TotalValue.text = "0";
 		SecondsValue.text = "0";
 	}
 

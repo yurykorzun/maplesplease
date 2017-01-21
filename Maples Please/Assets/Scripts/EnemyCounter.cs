@@ -5,39 +5,55 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class EnemyCounter : MonoBehaviour {
-	public int Total;
-	public int NumberRunning;
-	public int NumberCaptured;
-	public int NumberMissed;
-
+	public GameRounds Rounds;
 	public HUDManager HudManager;
+
+	public int TotalEnemies;
+	public int TotalCapturedEnemies;
+	public int TotalMissedEnemies;
+
+	public int RoundTotalEnemies;
+	public int RoundRunningEnemies;
+	public int RoundCapturedEnemies;
+	public int RoundMissedEnemies;
 
 	public void Awake()
 	{
-		HudManager.ResetValues();
+		Rounds.RoundStarted += RoundStarted;
+	}
+
+	public void RoundStarted(int round)
+	{
+		RoundTotalEnemies = 0;
+		RoundRunningEnemies = 0;
+		RoundCapturedEnemies = 0;
+		RoundMissedEnemies = 0;
 	}
 
 	public void CountCreated()
 	{
-		Total++;
-		NumberRunning++;
+		TotalEnemies++;
+		RoundRunningEnemies++;
+		RoundTotalEnemies++;
 
-		HudManager.SetTotal(Total);
+		HudManager.SetTotal(RoundTotalEnemies);
 	}
 
 	public void CountCaptured()
 	{
-		NumberRunning--;
-		NumberCaptured++;
+		RoundRunningEnemies--;
+		RoundCapturedEnemies++;
+		TotalCapturedEnemies++;
 
-		HudManager.SetCaptured(NumberCaptured);
+		HudManager.SetCaptured(RoundCapturedEnemies);
 	}
 
 	public void CountMissed()
 	{
-		NumberRunning--;
-		NumberMissed++;
+		RoundRunningEnemies--;
+		RoundMissedEnemies++;
+		TotalMissedEnemies++;
 
-		HudManager.SetMissed(NumberMissed);
+		HudManager.SetMissed(RoundMissedEnemies);
 	}
 }

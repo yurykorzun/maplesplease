@@ -1,25 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameRounds : MonoBehaviour {
 	public GameRound[] Rounds;
+	public EnemyCounter Counter;
+
 	private int _currentRound = 0;
 	private float _secondsElapsed = 0f;
 
 	public HUDManager HUDManager;
 
+	public Action<int> RoundStarted;
+	public Action GameCompleted;
+	public Action GameOver;
+
+	private bool _isFinished;
+
 	private void Awake()
 	{
+		HUDManager.ResetGameValues();
 		HUDManager.SetRound(CurrentRoundNumber);
 	}
 
 	private void Update()
 	{
+		if (_isFinished) return;
+
 		if (IsGameCompleted())
 		{
-			HUDManager.ResetValues();
+			Debug.Log("Game Completed");
+			_isFinished = true;
+			HUDManager.ResetGameValues();
+			if (GameCompleted != null) GameCompleted.Invoke();
+
 			return;
+		}
+		if (IsGameLost())
+		{
+			Debug.Log("Game Lost");
+
+			_isFinished = true;
+			HUDManager.ResetGameValues();
+			if (GameOver != null) GameOver.Invoke();
 		}
 
 		if (IsRoundCompleted())
@@ -29,7 +53,9 @@ public class GameRounds : MonoBehaviour {
 			{
 				_currentRound++;
 
+				HUDManager.ResetRoundValues();
 				HUDManager.SetRound(CurrentRoundNumber);
+				if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
 			}
 		}
 
@@ -46,13 +72,30 @@ public class GameRounds : MonoBehaviour {
 		}
 	}
 
+	public GameRound CurrentRound
+	{
+		get
+		{
+			var currentRound = Rounds[_currentRound];
+
+			return currentRound;
+		}
+	}
+
 	private bool IsRoundCompleted()
 	{
-		var currentRound = Rounds[_currentRound];
-
+		var currentRound = CurrentRound;
 		var isRoundCompleted = currentRound.LengthInSeconds <= _secondsElapsed;
 
 		return isRoundCompleted;
+	}
+
+	private bool IsGameLost()
+	{
+		var currentRound = CurrentRound;
+		var isLost = Counter.RoundMissedEnemies >= currentRound.MaxMissedEnemies;
+
+		return isLost;
 	}
 
 	private bool IsGameCompleted()
