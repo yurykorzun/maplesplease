@@ -11,6 +11,7 @@ public class GameRounds : MonoBehaviour {
 	private float _secondsElapsed = 0f;
 
 	public HUDManager HUDManager;
+	public HUDAttackManager HUDAttackManager;
 
 	public Action<int> RoundStarted;
 	public Action GameCompleted;
@@ -22,6 +23,7 @@ public class GameRounds : MonoBehaviour {
 	{
 		HUDManager.ResetGameValues();
 		HUDManager.SetRound(CurrentRoundNumber);
+		HUDAttackManager.ResetGameValues();
 	}
 
 	private void Update()
@@ -34,6 +36,7 @@ public class GameRounds : MonoBehaviour {
 			_isFinished = true;
 			HUDManager.ResetGameValues();
 			HUDManager.ShowGameCompleted(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
+			HUDAttackManager.ResetGameValues();
 
 			if (GameCompleted != null) GameCompleted.Invoke();
 
@@ -45,6 +48,7 @@ public class GameRounds : MonoBehaviour {
 
 			_isFinished = true;
 			HUDManager.ResetGameValues();
+			HUDAttackManager.ResetGameValues();
 			HUDManager.ShowGameOver(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
 
 			if (GameOver != null) GameOver.Invoke();
@@ -59,6 +63,7 @@ public class GameRounds : MonoBehaviour {
 
 				HUDManager.ResetRoundValues();
 				HUDManager.SetRound(CurrentRoundNumber);
+				HUDAttackManager.ResetRoundValues();
 				if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
 			}
 		}
