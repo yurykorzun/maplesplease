@@ -14,6 +14,8 @@ public class HUDManager : MonoBehaviour
 
 	public GameComplete GameComplete;
 
+	private float _exchangeRate = 0;
+
 	public void SetCaptured(int number)
 	{
 		CapturedValue.text = number.ToString();
@@ -48,8 +50,6 @@ public class HUDManager : MonoBehaviour
 		TotalValue.text = "0";
 		RoundValue.text = "0";
 		SecondsValue.text = "0";
-		MoneyUSDValue.text = "100";
-		MoneyCADValue.text = "0";
 	}
 
 	public void ResetRoundValues()
@@ -71,33 +71,40 @@ public class HUDManager : MonoBehaviour
 		SecondsValue.text = string.Format("{0}/{1}", seconds, totalSeconds);
 	}
 
-	public void AddUSD(int value) {
+	public void SetExchangeRate(float factor) {
+
+		// update the exchange rate
+		_exchangeRate += (_exchangeRate *= factor);
 
 		// get the current USD labe as a float
 		var currentUSD = float.Parse(MoneyUSDValue.text);
 
-		// add the new value
-		currentUSD += value;
-
-		// update the CAD value
 		UpdateMoney(currentUSD);
 	}
 
-	void UpdateMoney(float currentUSD) {
+	public void UpdateMoney(float currentUSD) {
 
 		// update the USD label
 		MoneyUSDValue.text = currentUSD.ToString();
 
 		if (currentUSD > 0) {
 
-			// get the exhange rate from settings
-			var exchangeRate = GameSettings.CADExchangeRate;
-			if (exchangeRate == 0) {
-				exchangeRate = 1.3F;
+			// if local rate is zero
+			if (_exchangeRate == 0) {
+
+				// get from settings
+				_exchangeRate = GameSettings.CADExchangeRate;
+			}
+
+			// if rate is still zero
+			if (_exchangeRate == 0) {
+
+				// hard-code
+				_exchangeRate = 1.3F;
 			}
 
 			// update the CAD value
-			MoneyCADValue.text = (currentUSD * exchangeRate).ToString ("N");
+			MoneyCADValue.text = (currentUSD * _exchangeRate).ToString ("N");
 		}
 	}
 }

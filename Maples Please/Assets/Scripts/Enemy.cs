@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour
 				Destination = Return;
 				_secondsWaiting = 0f;
 				_isInSpotlight = false;
+				_enemyCounter.AddUSD(1);
 			    gameObject.GetComponent<Animator>().SetTrigger(@"GoBack");
 			}
 		}

@@ -11,6 +11,7 @@ public class EnemyCounter : MonoBehaviour {
 	public int TotalEnemies;
 	public int TotalCapturedEnemies;
 	public int TotalMissedEnemies;
+	public float TotalMoneyUSD;
 
 	public int RoundTotalEnemies;
 	public int RoundRunningEnemies;
@@ -60,5 +61,18 @@ public class EnemyCounter : MonoBehaviour {
 		TotalMissedEnemies++;
 
 		HudManager.SetMissed(RoundMissedEnemies, Rounds.CurrentRound.MaxMissedEnemies);
+		HudManager.SetExchangeRate(-.1F);
+	}
+
+	public void AddUSD(int value) {
+
+		// get the current USD labe as a float
+		var currentUSD = float.Parse(HudManager.MoneyUSDValue.text);
+
+		// add the new value
+		currentUSD += value;
+
+		// Update all money
+		HudManager.UpdateMoney(currentUSD);
 	}
 }
