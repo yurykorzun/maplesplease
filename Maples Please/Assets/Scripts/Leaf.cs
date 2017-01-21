@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class Leaf : Bullet
 {
@@ -6,12 +7,14 @@ public class Leaf : Bullet
     private Animator _animator;
     private Rigidbody2D _rigidBody;
     private Sprite _sprite;
+	private AudioSource _splatSound;
 
     private void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<Sprite>();
+		_splatSound = gameObject.GetComponentsInChildren<AudioSource>().Single(x => x.name == "Splat");
     }
 
     private void Update()
@@ -41,5 +44,8 @@ public class Leaf : Bullet
         RotationSpeed = 0;
         transform.localRotation = new Quaternion(0, 0, 0, 0);
         _animator.SetTrigger("Land");
+
+		_splatSound.enabled = true;
+		_splatSound.Play();
     }
 }
