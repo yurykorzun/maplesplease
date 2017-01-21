@@ -7,24 +7,49 @@ public class Mountie : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var animator = gameObject.GetComponent<Animator>();
+            
+            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition;
 
-            var vectorFromMountieToMouse = Input.mousePosition - gameObject.transform.position;
-            var angle = Vector3.Angle(Vector3.up, vectorFromMountieToMouse);
-            if (0f <= angle && angle <= 22.5f)
+            var vectorFromMountieToMouse = mousePosition - gameObject.transform.position;
+            var angle = Vector2.Angle(transform.up, vectorFromMountieToMouse);
+            
+            if (mousePosition.x < gameObject.transform.position.x)
             {
-                animator.SetTrigger("ClickN");
-            }
-            else if (angle <= 45f)
-            {
-                animator.SetTrigger("ClickNNE");
-            }
-            else if (angle <= 67.5f)
-            {
-                animator.SetTrigger("ClickNE");
+                if (angle <= 22.5f)
+                {
+                    animator.SetTrigger("ClickNNW");
+                }
+                else if (angle <= 45f)
+                {
+                    animator.SetTrigger("ClickNW");
+                }
+                else if (angle <= 67.5f)
+                {
+                    animator.SetTrigger("ClickWNW");
+                }
+                else
+                {
+                    animator.SetTrigger("ClickW");
+                }
             }
             else
             {
-                animator.SetTrigger("ClickENE");
+                if (angle <= 22.5f)
+                {
+                    animator.SetTrigger("ClickNNE");
+                }
+                else if (angle <= 45f)
+                {
+                    animator.SetTrigger("ClickNE");
+                }
+                else if (angle <= 67.5f)
+                {
+                    animator.SetTrigger("ClickENE");
+                }
+                else
+                {
+                    animator.SetTrigger("ClickE");
+                }
             }
         }
     }
