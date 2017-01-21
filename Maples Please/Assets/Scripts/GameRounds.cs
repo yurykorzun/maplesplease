@@ -17,19 +17,13 @@ public class GameRounds : MonoBehaviour {
 	public Action<int> RoundStarted;
 	public Action GameCompleted;
 	public Action GameOver;
+	public AudioSource WhistleSound;
 
 	private bool _isFinished;
 
 	private void Awake()
 	{
-		HUDManager.ResetGameValues();
-		HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
-		HUDAttackManager.ResetGameValues();
-	}
-
-	private void Start()
-	{
-		if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
+		StartNextRound();
 	}
 
 	private void Update()
@@ -66,17 +60,21 @@ public class GameRounds : MonoBehaviour {
 			if (!IsGameCompleted())
 			{
 				_currentRound++;
-
-				HUDManager.ResetRoundValues();
-				HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
-				HUDAttackManager.ResetRoundValues();
-				if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
+				StartNextRound();
 			}
 		}
 
 		var roundedSeconds = Mathf.RoundToInt(_secondsElapsed);
 		HUDManager.SetSeconds(roundedSeconds, CurrentRound.LengthInSeconds);
 		_secondsElapsed += Time.deltaTime;
+	}
+
+	private void StartNextRound() {
+		HUDManager.ResetRoundValues();
+		HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
+		HUDAttackManager.ResetRoundValues();
+		WhistleSound.Play();
+		if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
 	}
 
 	public float GetSpeed()
