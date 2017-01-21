@@ -68,7 +68,7 @@ public class EnemyGenerator : MonoBehaviour {
 		}
 
 		var delay = Rounds.GetDelay();
-		yield return new WaitForSeconds(delay);
+		yield return new WaitForSeconds(Random.Range(delay-0.2f, delay + 0.2f));
 
 		StartCoroutine(GenerateEnemies());
 	}
