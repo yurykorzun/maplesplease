@@ -12,43 +12,48 @@ public class EnemyGenerator : MonoBehaviour {
 
 	void Start()
 	{
-
+		StartCoroutine(GenerateEnemies());
 	}
 
 
 	void Update()
 	{
-		StartCoroutine(GenerateEnemies());
+		
 	}
 
 	private IEnumerator GenerateEnemies()
 	{
-		var delay = Random.Range(3, 15);
-		yield return new WaitForSeconds(delay);
+		var numberOfEmenies = Random.Range(1, 7);
 
-		var numberOfEmenies = Random.Range(1, 5);
-
-		for(var i=0; i < numberOfEmenies; i++)
+		for (var i = 0; i < numberOfEmenies; i++)
 		{
 			var position = Random.Range(-5.5f, 5.5f);
-			var speed = Random.Range(-1, -5);
+			var speed = Random.Range(-0.5f, -3f);
 
 			var enemyPosition = new Vector3(position, transform.position.y, 0f);
 			var enemy = CreateEnemy(enemyPosition);
 			enemy.Speed = speed;
 		}
 
+		var delay = Random.Range(1, 3);
+		yield return new WaitForSeconds(delay);
+
 		StartCoroutine(GenerateEnemies());
 	}
 
 	private Enemy CreateEnemy(Vector3 position)
 	{
-		var enemyInstance = _enemyPool.Where(x => !x.enabled).FirstOrDefault();
+		var enemyInstance = _enemyPool.Where(x => !x.gameObject.activeSelf).FirstOrDefault();
 		if (enemyInstance == null)
 		{
 			enemyInstance = Instantiate<Enemy>(EnemyPrefab, position, Quaternion.identity);
 
 			_enemyPool.Add(enemyInstance);
+		}
+		else
+		{
+			enemyInstance.transform.position = position;
+			enemyInstance.gameObject.SetActive(true);
 		}
 
 		return enemyInstance;
