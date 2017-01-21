@@ -9,6 +9,8 @@ public class HUDManager : MonoBehaviour
 	public Text SecondsValue;
 	public Text RoundValue;
 	public Text RoundWaveTitle;
+	public Text MoneyUSDValue;
+	public Text MoneyCADValue;
 
 	public GameComplete GameComplete;
 
@@ -46,6 +48,8 @@ public class HUDManager : MonoBehaviour
 		TotalValue.text = "0";
 		RoundValue.text = "0";
 		SecondsValue.text = "0";
+		MoneyUSDValue.text = "100";
+		MoneyCADValue.text = "0";
 	}
 
 	public void ResetRoundValues()
@@ -65,5 +69,20 @@ public class HUDManager : MonoBehaviour
 	public void SetSeconds(int seconds, int totalSeconds)
 	{
 		SecondsValue.text = string.Format("{0}/{1}", seconds, totalSeconds);
+	}
+
+	public void UpdateCADExchangeRateValue() {
+
+		// get the exhange rate from settings
+		var exchangeRate = GameSettings.CADExchangeRate;
+		if (exchangeRate == 0) {
+			exchangeRate = 1.3F;
+		}
+
+		// get the USD
+		var rateUSD = float.Parse(MoneyUSDValue.text);
+
+		// set the CAD
+		MoneyCADValue.text = (rateUSD * exchangeRate).ToString("N");
 	}
 }
