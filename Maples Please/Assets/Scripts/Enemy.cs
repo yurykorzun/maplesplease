@@ -13,12 +13,4 @@ public class Enemy : MonoBehaviour
 		float step = Speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, Destination, step);
 	}
-
-	void OnTriggerEnter2D(Collider2D coll)
-	{
-		if (coll.gameObject.name == "EnemyCapture")
-		{
-			gameObject.SetActive(false);
-		}
-	}
 }

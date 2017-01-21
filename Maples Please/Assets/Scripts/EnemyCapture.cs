@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyCapture : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public EnemyCounter Counter;
+
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		if (coll.gameObject.name.Contains("Enemy"))
+		{
+			Counter.CountMissed();
+
+			coll.gameObject.SetActive(false);
+		}
 	}
 }

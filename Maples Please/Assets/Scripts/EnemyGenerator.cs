@@ -7,6 +7,8 @@ public class EnemyGenerator : MonoBehaviour {
 
 	public Enemy EnemyPrefab;
 	public GameObject Destination;
+	public EnemyCounter Counter;
+
 	private List<Enemy> _enemyPool = new List<Enemy>();
 
 	void Start()
@@ -26,13 +28,15 @@ public class EnemyGenerator : MonoBehaviour {
 
 		for (var i = 0; i < numberOfEmenies; i++)
 		{
-			var position = Random.Range(-5.5f, 5.5f);
+			var position = Random.Range(-10f, 10f);
 			var speed = Random.Range(1f, 5f);
 
 			var enemyPosition = new Vector3(position, transform.position.y, 0f);
 			var enemy = CreateEnemy(enemyPosition);
 			enemy.Destination.x = position;
 			enemy.Speed = speed;
+
+			Counter.CountCreated();
 		}
 
 		var delay = Random.Range(1, 6);
