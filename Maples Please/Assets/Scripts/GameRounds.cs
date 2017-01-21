@@ -114,9 +114,24 @@ public class GameRounds : MonoBehaviour {
 
 		var timeScaleValue = _secondsElapsed / stepValue;
 
-		var speed = currentRound.DelayCurve.Evaluate(timeScaleValue);
+		var delay = currentRound.DelayCurve.Evaluate(timeScaleValue);
 
-		return Mathf.RoundToInt(speed);
+		return delay;
+	}
+
+	public float GetWaitSeconds()
+	{
+		var currentRound = CurrentRound;
+		var lastKey = currentRound.WaitCurve.keys.Last();
+
+		var timeScale = lastKey.time;
+		var stepValue = currentRound.LengthInSeconds / timeScale;
+
+		var timeScaleValue = _secondsElapsed / stepValue;
+
+		var wait = currentRound.WaitCurve.Evaluate(timeScaleValue);
+
+		return wait;
 	}
 
 	public int CurrentRoundNumber

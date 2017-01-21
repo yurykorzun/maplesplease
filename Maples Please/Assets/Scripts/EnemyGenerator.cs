@@ -66,6 +66,7 @@ public class EnemyGenerator : MonoBehaviour {
 			enemy.Destination = Destination.GetRandomDestination();
 			enemy.Speed = Rounds.GetSpeed();
 			enemy.Return = Return.GetRandomDestination();
+			enemy.WaitSeconds = Rounds.GetWaitSeconds();
 
 			Counter.CountCreated();
 		}

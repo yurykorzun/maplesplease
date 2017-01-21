@@ -37,8 +37,9 @@ public class Enemy : MonoBehaviour
 			_secondsWaiting += Time.deltaTime;
 			if(_secondsWaiting >= WaitSeconds)
 			{
-				_enemyCounter.CountCaptured();
 				Destination = Return;
+				_secondsWaiting = 0f;
+				_isInSpotlight = false;
 			}
 		}
 		else
