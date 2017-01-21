@@ -183,7 +183,7 @@ public class GameRounds : MonoBehaviour {
 
 	private bool IsGameCompleted()
 	{
-		var isCompleted = _currentRound >= Rounds.Length;
+		var isCompleted = CurrentRoundNumber >= Rounds.Length;
 
 		return isCompleted;
 	}
