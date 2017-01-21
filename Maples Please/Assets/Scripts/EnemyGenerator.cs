@@ -47,11 +47,11 @@ public class EnemyGenerator : MonoBehaviour {
 
 	private IEnumerator GenerateEnemies()
 	{
-
-		var numberOfEmenies = Random.Range(1, 5);
+		var numberOfEmenies = Rounds.GetEnemiesNumber();
 		var colliderXSize = _boxCollider.size.x;
 		var generatorXPosition = transform.position.x;
 		var xHalf = colliderXSize / 2;
+
 
 		for (var i = 0; i < numberOfEmenies; i++)
 		{
@@ -62,12 +62,12 @@ public class EnemyGenerator : MonoBehaviour {
 			var enemy = CreateEnemy(enemyPosition);
 			enemy.AdjustScale();
 			enemy.Destination = Destination.GetRandomDestination();
-			enemy.Speed = speed;
+			enemy.Speed = Rounds.GetSpeed();
 
 			Counter.CountCreated();
 		}
 
-		var delay = Random.Range(1, 6);
+		var delay = Rounds.GetDelay();
 		yield return new WaitForSeconds(delay);
 
 		StartCoroutine(GenerateEnemies());
