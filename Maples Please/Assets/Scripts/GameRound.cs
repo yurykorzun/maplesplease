@@ -8,6 +8,8 @@ public class GameRound : MonoBehaviour
 {
 	public AnimationCurve SpeedCurve;
 	public AnimationCurve EnemyCurve;
+	public AnimationCurve DelayCurve;
+	public AnimationCurve WaitCurve;
 
 	public int LengthInSeconds;
 	public int MaxMissedEnemies;

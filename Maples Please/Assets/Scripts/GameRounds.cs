@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameRounds : MonoBehaviour {
@@ -71,6 +72,66 @@ public class GameRounds : MonoBehaviour {
 		var roundedSeconds = Mathf.RoundToInt(_secondsElapsed);
 		HUDManager.SetSeconds(roundedSeconds);
 		_secondsElapsed += Time.deltaTime;
+	}
+
+	public float GetSpeed()
+	{
+		var currentRound = CurrentRound;
+		var lastSpeedKey = currentRound.SpeedCurve.keys.Last();
+
+		var timeScale = lastSpeedKey.time;
+		var stepValue = currentRound.LengthInSeconds / timeScale;
+
+		var timeScaleValue = _secondsElapsed / stepValue;
+
+		var speed = currentRound.SpeedCurve.Evaluate(timeScaleValue);
+
+		return speed;
+	}
+
+	public int GetEnemiesNumber()
+	{
+		var currentRound = CurrentRound;
+		var lastKey = currentRound.EnemyCurve.keys.Last();
+
+		var timeScale = lastKey.time;
+		var stepValue = currentRound.LengthInSeconds / timeScale;
+
+		var timeScaleValue = _secondsElapsed / stepValue;
+
+		var speed = currentRound.EnemyCurve.Evaluate(timeScaleValue);
+
+		return Mathf.RoundToInt(speed);
+	}
+
+	public float GetDelay()
+	{
+		var currentRound = CurrentRound;
+		var lastKey = currentRound.DelayCurve.keys.Last();
+
+		var timeScale = lastKey.time;
+		var stepValue = currentRound.LengthInSeconds / timeScale;
+
+		var timeScaleValue = _secondsElapsed / stepValue;
+
+		var delay = currentRound.DelayCurve.Evaluate(timeScaleValue);
+
+		return delay;
+	}
+
+	public float GetWaitSeconds()
+	{
+		var currentRound = CurrentRound;
+		var lastKey = currentRound.WaitCurve.keys.Last();
+
+		var timeScale = lastKey.time;
+		var stepValue = currentRound.LengthInSeconds / timeScale;
+
+		var timeScaleValue = _secondsElapsed / stepValue;
+
+		var wait = currentRound.WaitCurve.Evaluate(timeScaleValue);
+
+		return wait;
 	}
 
 	public int CurrentRoundNumber

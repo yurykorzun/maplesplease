@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+	[Range(1, 4)]
+	public float WaitSeconds;
 	public float Speed;
 	public Vector3 Origin;
 	public Vector3 Destination;
-	public Vector3 EnemyPosition;
-
+	public Vector3 Return;
+	
+	private bool _isInSpotlight;
+	private float _secondsWaiting;
 	private EnemyCounter _enemyCounter;
 	private float _speedFactor = 2;
 	private float _scaleFactor = .1F;
@@ -27,6 +31,21 @@ public class Enemy : MonoBehaviour
 
 		// scale
 		AdjustScale();
+
+		if (_isInSpotlight)
+		{
+			_secondsWaiting += Time.deltaTime;
+			if(_secondsWaiting >= WaitSeconds)
+			{
+				Destination = Return;
+				_secondsWaiting = 0f;
+				_isInSpotlight = false;
+			}
+		}
+		else
+		{
+			_secondsWaiting = 0f;
+		}
 	}
 
 	public void AdjustScale() {
@@ -42,17 +61,13 @@ public class Enemy : MonoBehaviour
 		};
 	}
 
-	void OnMouseDown()
-	{
-		_enemyCounter.CountCaptured();
-		gameObject.SetActive(false);
-	}
-
 	void OnTriggerEnter2D(Collider2D coll)
 	{
 		if (coll.gameObject.name.Contains(_spotlightName))
 		{
 			Speed /= _speedFactor;
+
+			_isInSpotlight = true;
 		}
 	}
 
@@ -60,6 +75,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (coll.gameObject.name.Contains(_spotlightName))
 		{
+			_isInSpotlight = false;
 			Speed *= _speedFactor;
 		}
 	}

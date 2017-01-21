@@ -8,6 +8,8 @@ public class EnemyGenerator : MonoBehaviour {
 	public GameRounds Rounds;
 	public Enemy EnemyPrefab;
 	public EnemyDestination Destination;
+	public EnemyDestination Return;
+
 	public EnemyCounter Counter;
 
 	private List<Enemy> _enemyPool = new List<Enemy>();
@@ -47,11 +49,11 @@ public class EnemyGenerator : MonoBehaviour {
 
 	private IEnumerator GenerateEnemies()
 	{
-
-		var numberOfEmenies = Random.Range(1, 5);
+		var numberOfEmenies = Rounds.GetEnemiesNumber();
 		var colliderXSize = _boxCollider.size.x;
 		var generatorXPosition = transform.position.x;
 		var xHalf = colliderXSize / 2;
+
 
 		for (var i = 0; i < numberOfEmenies; i++)
 		{
@@ -62,13 +64,15 @@ public class EnemyGenerator : MonoBehaviour {
 			var enemy = CreateEnemy(enemyPosition);
 			enemy.AdjustScale();
 			enemy.Destination = Destination.GetRandomDestination();
-			enemy.Speed = speed;
+			enemy.Speed = Rounds.GetSpeed();
+			enemy.Return = Return.GetRandomDestination();
+			enemy.WaitSeconds = Rounds.GetWaitSeconds();
 
 			Counter.CountCreated();
 		}
 
-		var delay = Random.Range(1, 6);
-		yield return new WaitForSeconds(delay);
+		var delay = Rounds.GetDelay();
+		yield return new WaitForSeconds(Random.Range(delay-0.2f, delay + 0.2f));
 
 		StartCoroutine(GenerateEnemies());
 	}
