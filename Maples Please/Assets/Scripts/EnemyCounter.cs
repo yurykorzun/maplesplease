@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class EnemyCounter : MonoBehaviour {
@@ -9,23 +10,11 @@ public class EnemyCounter : MonoBehaviour {
 	public int NumberCaptured;
 	public int NumberMissed;
 
-	public Text TotalValue;
-	public Text CapturedValue;
-	public Text MissedValue;
+	public HUDManager HudManager;
 
 	public void Awake()
 	{
-		TotalValue.text = "0";
-		CapturedValue.text = "0";
-		MissedValue.text = "0";
-	}
-
-	public void ResetCounter()
-	{
-		Total = 0;
-		NumberCaptured = 0;
-		NumberRunning = 0;
-		NumberMissed = 0;
+		HudManager.ResetValues();
 	}
 
 	public void CountCreated()
@@ -33,14 +22,15 @@ public class EnemyCounter : MonoBehaviour {
 		Total++;
 		NumberRunning++;
 
-		TotalValue.text = Total.ToString();
+		HudManager.SetTotal(Total);
 	}
 
 	public void CountCaptured()
 	{
 		NumberRunning--;
 		NumberCaptured++;
-		CapturedValue.text = NumberCaptured.ToString();
+
+		HudManager.SetCaptured(NumberCaptured);
 	}
 
 	public void CountMissed()
@@ -48,6 +38,6 @@ public class EnemyCounter : MonoBehaviour {
 		NumberRunning--;
 		NumberMissed++;
 
-		MissedValue.text = NumberMissed.ToString();
+		HudManager.SetMissed(NumberMissed);
 	}
 }
