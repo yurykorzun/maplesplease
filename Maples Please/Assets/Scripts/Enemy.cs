@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
+public class Enemy : MonoBehaviour
+{
 	public float Speed;
+	public Vector3 Destination;
 
 	// Use this for initialization
-	void Start () {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1 * Speed);
+	void Update()
+	{
+		float step = Speed * Time.deltaTime;
+		transform.position = Vector3.MoveTowards(transform.position, Destination, step);
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
 		if (coll.gameObject.name == "EnemyCapture")
 		{
 			gameObject.SetActive(false);
 		}
-	}
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
