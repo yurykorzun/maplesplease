@@ -25,29 +25,19 @@ public class Spotlight : MonoBehaviour {
 		updateSpotlightPosition(mousePos);
 
 		// detect enemy
-
+		detectEnemy();
 	}
 
 	void checkBounds(ref Vector3 mousePos) {
 
 		// Get the camera position
 		var cameraPos = Camera.main.pixelRect;
-		
+
 		// x bounds
-		if (mousePos.x < cameraPos.xMin) {
-			mousePos.x = cameraPos.xMin;
-		}
-		if (mousePos.x > cameraPos.xMax) {
-			mousePos.x = cameraPos.xMax;
-		}
+		mousePos.x = Mathf.Clamp(mousePos.x, cameraPos.xMin, cameraPos.xMax);
 
 		// y bounds
-		if (mousePos.y < cameraPos.yMin) {
-			mousePos.y = cameraPos.yMin;
-		}
-		if (mousePos.y > cameraPos.yMax) {
-			mousePos.y = cameraPos.yMax;
-		}
+		mousePos.y = Mathf.Clamp(mousePos.y, cameraPos.yMin, cameraPos.yMax);
 	}
 
 	void updateSpotlightPosition(Vector3 mousePos) {

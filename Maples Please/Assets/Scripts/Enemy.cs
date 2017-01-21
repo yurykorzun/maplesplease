@@ -6,7 +6,10 @@ public class Enemy : MonoBehaviour
 {
 	public float Speed;
 	public Vector3 Destination;
+
 	private EnemyCounter _enemyCounter;
+	private float _speedFactor = 2;
+	private string _spotlightName = "Spotlight";
 
 	private void Awake()
 	{
@@ -24,5 +27,21 @@ public class Enemy : MonoBehaviour
 	{
 		_enemyCounter.CountCaptured();
 		gameObject.SetActive(false);
+	}
+
+	void OnTriggerEnter2D(Collider2D coll)
+	{
+		if (coll.gameObject.name.Contains(_spotlightName))
+		{
+			Speed /= _speedFactor;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D coll)
+	{
+		if (coll.gameObject.name.Contains(_spotlightName))
+		{
+			Speed *= _speedFactor;
+		}
 	}
 }
