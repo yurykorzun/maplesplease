@@ -33,6 +33,8 @@ public class GameRounds : MonoBehaviour {
 			Debug.Log("Game Completed");
 			_isFinished = true;
 			HUDManager.ResetGameValues();
+			HUDManager.ShowGameCompleted(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
+
 			if (GameCompleted != null) GameCompleted.Invoke();
 
 			return;
@@ -43,6 +45,8 @@ public class GameRounds : MonoBehaviour {
 
 			_isFinished = true;
 			HUDManager.ResetGameValues();
+			HUDManager.ShowGameOver(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
+
 			if (GameOver != null) GameOver.Invoke();
 		}
 

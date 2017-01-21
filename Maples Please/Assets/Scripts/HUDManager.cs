@@ -9,6 +9,8 @@ public class HUDManager : MonoBehaviour
 	public Text SecondsValue;
 	public Text RoundValue;
 
+	public GameComplete GameComplete;
+
 	public void SetCaptured(int number)
 	{
 		CapturedValue.text = number.ToString();
@@ -22,6 +24,18 @@ public class HUDManager : MonoBehaviour
 	public void SetTotal(int number)
 	{
 		TotalValue.text = number.ToString();
+	}
+
+	public void ShowGameOver(int totalCaptured, int totalMissed)
+	{
+		GameComplete.gameObject.SetActive(true);
+		GameComplete.ShowGameOver(totalCaptured, totalMissed);
+	}
+
+	public void ShowGameCompleted(int totalCaptured, int totalMissed)
+	{
+		GameComplete.gameObject.SetActive(true);
+		GameComplete.ShowGameCompleted(totalCaptured, totalMissed);
 	}
 
 	public void ResetGameValues()
