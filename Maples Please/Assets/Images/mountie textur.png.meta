@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: dd692a7569cef474ca7626b342345e9d
+timeCreated: 1485110634
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: mountie textur_0
+    21300002: mountie textur_1
+    21300004: mountie textur_2
+    21300006: mountie textur_3
+    21300008: mountie textur_4
+    21300010: mountie textur_5
+    21300012: mountie textur_6
+    21300014: mountie textur_7
+    21300016: mountie textur_8
+    21300018: mountie textur_9
+    21300020: mountie textur_10
+    21300022: mountie textur_11
+    21300024: mountie textur_12
+    21300026: mountie textur_13
+    21300028: mountie textur_14
+    21300030: mountie textur_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mountie textur_0
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 2112
+        width: 321
+        height: 384
+      alignment: 9
+      pivot: {x: 0.64761037, y: 0.29728317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_1
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 2086
+        width: 363
+        height: 430
+      alignment: 9
+      pivot: {x: 0.2202895, y: 0.33471054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_2
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 2115
+        width: 293
+        height: 396
+      alignment: 9
+      pivot: {x: 0.31518096, y: 0.27778578}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_3
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 2156
+        width: 192
+        height: 350
+      alignment: 9
+      pivot: {x: 0.60576564, y: 0.13254046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1487
+        width: 398
+        height: 354
+      alignment: 9
+      pivot: {x: 0.7806239, y: 0.30878583}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_5
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1453
+        width: 202
+        height: 406
+      alignment: 9
+      pivot: {x: 0.5837744, y: 0.38329327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_6
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 1512
+        width: 311
+        height: 342
+      alignment: 9
+      pivot: {x: 0.41293874, y: 0.27238813}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_7
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 1500
+        width: 255
+        height: 325
+      alignment: 9
+      pivot: {x: 0.59290797, y: 0.20841308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_8
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 947
+        width: 392
+        height: 360
+      alignment: 9
+      pivot: {x: 0.879892, y: 0.34017673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_9
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 891
+        width: 310
+        height: 379
+      alignment: 9
+      pivot: {x: 0.45632914, y: 0.36604926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_10
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 901
+        width: 355
+        height: 373
+      alignment: 9
+      pivot: {x: 0.4332633, y: 0.3366732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_11
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 957
+        width: 350
+        height: 301
+      alignment: 9
+      pivot: {x: 0.3839603, y: 0.16267511}
+      border: {x: 0, y: 0, z: 1, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_12
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 327
+        width: 314
+        height: 402
+      alignment: 9
+      pivot: {x: 0.952703, y: 0.045366354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_13
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 352
+        width: 355
+        height: 299
+      alignment: 9
+      pivot: {x: 0.948088, y: 0.035906024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_14
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 275
+        width: 228
+        height: 358
+      alignment: 9
+      pivot: {x: 0.9304842, y: 0.25419906}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: mountie textur_15
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 294
+        width: 355
+        height: 333
+      alignment: 9
+      pivot: {x: 0.5190674, y: 0.09345454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
