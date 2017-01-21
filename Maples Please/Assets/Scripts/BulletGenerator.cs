@@ -22,8 +22,9 @@ public class BulletGenerator : MonoBehaviour
 
     public bool GenerateBullet(Vector3 position, Vector2 vectorFromMountieToMouse)
     {
-        var limitReached = _bulletsFired >= Rounds.CurrentRound.PucksLimit;   
-        if (limitReached)
+        // hack #1 - cuz im out of time!
+        var bulletsLimit = BulletPrototype is Puck ? Rounds.CurrentRound.PucksLimit : Rounds.CurrentRound.LeafsLimit;        
+        if (_bulletsFired >= bulletsLimit)
         {
             return false;
         }
@@ -37,7 +38,16 @@ public class BulletGenerator : MonoBehaviour
 
         bullet.Fire(position, vectorFromMountieToMouse);
         _bulletsFired++;
-        HUDAttack.SetPucks(Rounds.CurrentRound.PucksLimit - _bulletsFired);
+
+        // hack #2 - cuz im out of time!
+        if (BulletPrototype is Puck)
+        {
+            HUDAttack.SetPucks(Rounds.CurrentRound.PucksLimit - _bulletsFired);
+        }
+        else
+        {
+            HUDAttack.SetLeafs(Rounds.CurrentRound.LeafsLimit - _bulletsFired);
+        }
 
         return true;
     }
