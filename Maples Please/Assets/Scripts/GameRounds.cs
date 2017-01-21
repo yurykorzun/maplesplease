@@ -16,6 +16,12 @@ public class GameRounds : MonoBehaviour {
 
 	private void Update()
 	{
+		if (IsGameCompleted())
+		{
+			HUDManager.ResetValues();
+			return;
+		}
+
 		if (IsRoundCompleted())
 		{
 			_secondsElapsed = 0;
