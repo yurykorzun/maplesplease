@@ -38,6 +38,7 @@ public class EnemyGenerator : MonoBehaviour {
 
 			var enemyPosition = new Vector3(enemyXPosition, transform.position.y, 0f);
 			var enemy = CreateEnemy(enemyPosition);
+			enemy.AdjustScale();
 			enemy.Destination = Destination.GetRandomDestination();
 			enemy.Speed = speed;
 
@@ -56,6 +57,7 @@ public class EnemyGenerator : MonoBehaviour {
 		if (enemyInstance == null)
 		{
 			enemyInstance = Instantiate<Enemy>(EnemyPrefab, position, Quaternion.identity);
+			enemyInstance.Origin = position;
 			enemyInstance.Destination = Destination.transform.position;
 
 			_enemyPool.Add(enemyInstance);
