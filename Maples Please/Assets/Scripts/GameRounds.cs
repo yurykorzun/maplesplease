@@ -23,9 +23,9 @@ public class GameRounds : MonoBehaviour {
 	{
 		StartNextRound();
 
-		//HUDManager.MoneyUSDValue.text = "100";
-		//HUDManager.MoneyCADValue.text = "0";
-		//HUDManager.UpdateCADExchangeRateValue();
+		HUDManager.MoneyUSDValue.text = "100";
+		HUDManager.MoneyCADValue.text = "0";
+		HUDManager.UpdateCADExchangeRateValue();
 	}
 
 	private void Update()
@@ -84,7 +84,7 @@ public class GameRounds : MonoBehaviour {
 		HUDManager.RoundWaveTitle.gameObject.SetActive(true);
 		HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
        
-        //HUDManager.UpdateCADExchangeRateValue();       
+        HUDManager.UpdateCADExchangeRateValue();       
 
 		HUDAttackManager.ResetRoundValues();
 		WhistleSound.Play();
