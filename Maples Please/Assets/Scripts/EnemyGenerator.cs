@@ -8,6 +8,8 @@ public class EnemyGenerator : MonoBehaviour {
 	public GameRounds Rounds;
 	public Enemy EnemyPrefab;
 	public EnemyDestination Destination;
+	public EnemyDestination Return;
+
 	public EnemyCounter Counter;
 
 	private List<Enemy> _enemyPool = new List<Enemy>();
@@ -63,6 +65,7 @@ public class EnemyGenerator : MonoBehaviour {
 			enemy.AdjustScale();
 			enemy.Destination = Destination.GetRandomDestination();
 			enemy.Speed = Rounds.GetSpeed();
+			enemy.Return = Return.GetRandomDestination();
 
 			Counter.CountCreated();
 		}

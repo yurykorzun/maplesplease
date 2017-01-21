@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+	[Range(1, 4)]
+	public float WaitSeconds;
 	public float Speed;
 	public Vector3 Origin;
 	public Vector3 Destination;
-	public Vector3 EnemyPosition;
-	public float WaitSeconds;
-
+	public Vector3 Return;
+	
 	private bool _isInSpotlight;
 	private float _secondsWaiting;
 	private EnemyCounter _enemyCounter;
@@ -36,7 +37,8 @@ public class Enemy : MonoBehaviour
 			_secondsWaiting += Time.deltaTime;
 			if(_secondsWaiting >= WaitSeconds)
 			{
-				Destination.y = Mathf.Abs(Destination.y);
+				_enemyCounter.CountCaptured();
+				Destination = Return;
 			}
 		}
 		else
