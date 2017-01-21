@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PlaygroundArea : MonoBehaviour {
 
-	
+	private void Update()
+	{
+
+	}
 }
