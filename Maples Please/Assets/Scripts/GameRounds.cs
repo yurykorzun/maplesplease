@@ -21,11 +21,18 @@ public class GameRounds : MonoBehaviour {
 
 	private void Awake()
 	{
+		RoundStarted += OnRoundStarted;
 		StartNextRound();
 
 		HUDManager.MoneyUSDValue.text = "100";
 		HUDManager.MoneyCADValue.text = "0";
 		HUDManager.UpdateCADExchangeRateValue();
+	}
+
+	void OnRoundStarted(int round)
+	{
+		HUDAttackManager.SetPucks(CurrentRound.PucksLimit);
+		HUDAttackManager.SetLeafs(CurrentRound.LeafsLimit);
 	}
 
 	private void Update()
