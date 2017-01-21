@@ -71,18 +71,33 @@ public class HUDManager : MonoBehaviour
 		SecondsValue.text = string.Format("{0}/{1}", seconds, totalSeconds);
 	}
 
-	public void UpdateCADExchangeRateValue() {
+	public void AddUSD(int value) {
 
-		// get the exhange rate from settings
-		var exchangeRate = GameSettings.CADExchangeRate;
-		if (exchangeRate == 0) {
-			exchangeRate = 1.3F;
+		// get the current USD labe as a float
+		var currentUSD = float.Parse(MoneyUSDValue.text);
+
+		// add the new value
+		currentUSD += value;
+
+		// update the CAD value
+		UpdateMoney(currentUSD);
+	}
+
+	void UpdateMoney(float currentUSD) {
+
+		// update the USD label
+		MoneyUSDValue.text = currentUSD.ToString();
+
+		if (currentUSD > 0) {
+
+			// get the exhange rate from settings
+			var exchangeRate = GameSettings.CADExchangeRate;
+			if (exchangeRate == 0) {
+				exchangeRate = 1.3F;
+			}
+
+			// update the CAD value
+			MoneyCADValue.text = (currentUSD * exchangeRate).ToString ("N");
 		}
-
-		// get the USD
-		var rateUSD = float.Parse(MoneyUSDValue.text);
-
-		// set the CAD
-		MoneyCADValue.text = (rateUSD * exchangeRate).ToString("N");
 	}
 }
