@@ -76,7 +76,7 @@ public class HUDManager : MonoBehaviour
 	{
 		RoundWave.ShowWave(roundNumber);
 
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(1.5f);
 
 		RoundWave.HideWave();
 	} 
