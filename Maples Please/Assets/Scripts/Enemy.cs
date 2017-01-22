@@ -25,12 +25,7 @@ public class Enemy : MonoBehaviour
 
 	private void OnEnable()
 	{
-		transform.localScale = new Vector3
-		{
-			x = 1f,
-			y = 1f,
-			z = transform.localScale.z
-		};
+		
 	}
 
 	void Update()
