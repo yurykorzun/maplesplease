@@ -40,8 +40,8 @@ public class GameRounds : MonoBehaviour {
 
 		if (IsGameCompleted())
 		{
-			Debug.Log("Game Completed");
 			_isFinished = true;
+			_secondsElapsed = 0;
 			HUDManager.ResetGameValues();
 			HUDManager.ShowGameCompleted(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
 			HUDAttackManager.ResetGameValues();
@@ -52,9 +52,8 @@ public class GameRounds : MonoBehaviour {
 		}
 		if (IsGameLost())
 		{
-			Debug.Log("Game Lost");
-
 			_isFinished = true;
+			_secondsElapsed = 0;
 			HUDManager.ResetGameValues();
 			HUDAttackManager.ResetGameValues();
 			HUDManager.ShowGameOver(Counter.TotalCapturedEnemies, Counter.TotalMissedEnemies);
