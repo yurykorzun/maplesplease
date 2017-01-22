@@ -23,9 +23,9 @@ public class TitleScreenManager : MonoBehaviour
         {
             var startButton = Instantiate(StartButton, new Vector3(Camera.main.pixelWidth / 2f, Camera.main.pixelHeight / 4f, -1f), new Quaternion());
             startButton.transform.SetParent(Canvas.transform);
-            StartButton.LevelManager = LevelManager;
-            StartButton.BGMusic = BGMusic;
-            StartButton.StartNoise = StartNoise;
+            startButton.LevelManager = LevelManager;
+            startButton.BGMusic = BGMusic;
+            startButton.StartNoise = StartNoise;
 
             Destroy(this);
         }
