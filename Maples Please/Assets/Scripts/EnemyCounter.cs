@@ -22,6 +22,11 @@ public class EnemyCounter : MonoBehaviour {
 		Rounds.RoundStarted += RoundStarted;
 	}
 
+	public void Start()
+	{
+		HudManager.SetMissed(RoundMissedEnemies, Rounds.CurrentRound.MaxMissedEnemies);
+	}
+
 	public void RoundStarted(int round)
 	{
 		RoundTotalEnemies = 0;
@@ -54,6 +59,6 @@ public class EnemyCounter : MonoBehaviour {
 		RoundMissedEnemies++;
 		TotalMissedEnemies++;
 
-		HudManager.SetMissed(RoundMissedEnemies);
+		HudManager.SetMissed(RoundMissedEnemies, Rounds.CurrentRound.MaxMissedEnemies);
 	}
 }

@@ -23,7 +23,7 @@ public class GameRounds : MonoBehaviour {
 	private void Awake()
 	{
 		HUDManager.ResetGameValues();
-		HUDManager.SetRound(CurrentRoundNumber);
+		HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
 		HUDAttackManager.ResetGameValues();
 	}
 
@@ -68,14 +68,14 @@ public class GameRounds : MonoBehaviour {
 				_currentRound++;
 
 				HUDManager.ResetRoundValues();
-				HUDManager.SetRound(CurrentRoundNumber);
+				HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
 				HUDAttackManager.ResetRoundValues();
 				if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
 			}
 		}
 
 		var roundedSeconds = Mathf.RoundToInt(_secondsElapsed);
-		HUDManager.SetSeconds(roundedSeconds);
+		HUDManager.SetSeconds(roundedSeconds, CurrentRound.LengthInSeconds);
 		_secondsElapsed += Time.deltaTime;
 	}
 

@@ -16,9 +16,9 @@ public class HUDManager : MonoBehaviour
 		CapturedValue.text = number.ToString();
 	}
 
-	public void SetMissed(int number)
+	public void SetMissed(int number, int allowedMissed)
 	{
-		MissedValue.text = number.ToString();
+		MissedValue.text = string.Format("{0}/{1}", number, allowedMissed);
 	}
 
 	public void SetTotal(int number)
@@ -55,13 +55,13 @@ public class HUDManager : MonoBehaviour
 		SecondsValue.text = "0";
 	}
 
-	public void SetRound(int seconds)
+	public void SetRound(int roundNumber, int totalRounds)
 	{
-		RoundValue.text = seconds.ToString();
+		RoundValue.text = string.Format("{0}/{1}", roundNumber, totalRounds);
 	}
 
-	public void SetSeconds(int seconds)
+	public void SetSeconds(int seconds, int totalSeconds)
 	{
-		SecondsValue.text = seconds.ToString();
+		SecondsValue.text = string.Format("{0}/{1}", seconds, totalSeconds);
 	}
 }
