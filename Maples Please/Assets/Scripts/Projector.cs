@@ -20,7 +20,7 @@ public class Projector : MonoBehaviour {
         var targetVector = _spotCollider.bounds.center - transform.position;
         var angle = targetVector.ToAngleInDegrees();
 
-        GetComponent<SpriteRenderer>().sprite = angle >= 0 && angle < 60 ? _rightSprite : 
+        GetComponent<SpriteRenderer>().sprite = angle >= -90 && angle < 60 ? _rightSprite : 
                                                 angle >= 50 && angle < 120 ? _centerSprite : 
                                                 _leftSprite;
     }
