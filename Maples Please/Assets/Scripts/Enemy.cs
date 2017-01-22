@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class Enemy : MonoBehaviour
 	private EnemyCounter _enemyCounter;
 	private float _speedFactor = 2;
 	private float _scaleFactor = .1F;
-	private string _spotlightName = "Spotlight";
+	private string _spotlightName = "Spot";
 
 	private void Awake()
 	{

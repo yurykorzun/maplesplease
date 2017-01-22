@@ -5,16 +5,18 @@ public class Beam : MonoBehaviour {
     private Transform _projectorTransform;
     private Collider2D _spotlightCollider;
     private Sprite _sprite;
-    private float _thinnestHeight;
-    private float _thickestHeight;
+    private float _minHeight;
+    private float _maxHeight;
 
     void Start ()
     {
         _projectorTransform = GameObject.Find("Projector").transform;
-        _spotlightCollider = GameObject.Find("Spotlight").GetComponent<Collider2D>();
+        _spotlightCollider = GameObject.Find("Spot").GetComponent<Collider2D>();
         _sprite = GetComponent<SpriteRenderer>().sprite;
-        _thinnestHeight = _spotlightCollider.bounds.size.y + 1.4f;
-        _thickestHeight = _spotlightCollider.bounds.size.x + 2.5f;
+
+        // Hacky.  But, can't justify spending time to make this fancy :)
+        _minHeight = _spotlightCollider.bounds.size.y + 1.4f;
+        _maxHeight = _spotlightCollider.bounds.size.x + 2.5f;
     }
 	
 	void Update ()
@@ -23,7 +25,7 @@ public class Beam : MonoBehaviour {
         var destination = _spotlightCollider.bounds.center;
         var difference = destination - origin;
         var desiredLength = difference.magnitude;
-        var desiredHeight = (Mathf.Sin(difference.ToAngleInRadians()) * (_thickestHeight - _thinnestHeight)) + _thinnestHeight; // ugly :)
+        var desiredHeight = (Mathf.Sin(difference.ToAngleInRadians()) * (_maxHeight - _minHeight)) + _minHeight; // leave the ugly math to me :)
 
         transform.localScale = GetScaleVector(desiredLength, desiredHeight);
         transform.position = GetPositionBetween(origin, destination);
@@ -32,7 +34,7 @@ public class Beam : MonoBehaviour {
     
     private Vector3 GetScaleVector(float desiredLength, float desiredHeight)
     {
-        // More hacky shit.  Or is this the way Unity intended??  Who the hell knows????
+        // Hacky shit.  Or is this the way Unity intended??  Who the hell knows????
         var scaleX = desiredLength / (_sprite.textureRect.width / 100);
         var scaleY = desiredHeight / (_sprite.textureRect.height / 100);
         return new Vector3(scaleX, scaleY, 1);
@@ -40,7 +42,7 @@ public class Beam : MonoBehaviour {
 
     private Vector3 GetPositionBetween(Vector2 vector1, Vector2 vector2)
     {
-        return (vector1 + vector2) / 2; // could reset pos.z... but who cares?
+        return (vector1 + vector2) / 2; // Could reset pos.z... but who cares?
     } 
 }
 
