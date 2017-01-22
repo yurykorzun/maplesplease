@@ -3,7 +3,7 @@
 public class Beam : MonoBehaviour {
 
     private Transform _projectorTransform;
-    private Collider2D _spotlightCollider;
+    private Collider2D _spotCollider;
     private Sprite _sprite;
     private float _minHeight;
     private float _maxHeight;
@@ -11,18 +11,18 @@ public class Beam : MonoBehaviour {
     void Start ()
     {
         _projectorTransform = GameObject.Find("Projector").transform;
-        _spotlightCollider = GameObject.Find("Spot").GetComponent<Collider2D>();
+        _spotCollider = GameObject.Find("Spot").GetComponent<Collider2D>();
         _sprite = GetComponent<SpriteRenderer>().sprite;
 
         // Hacky.  But, can't justify spending time to make this fancy :)
-        _minHeight = _spotlightCollider.bounds.size.y + 1.4f;
-        _maxHeight = _spotlightCollider.bounds.size.x + 2.5f;
+        _minHeight = _spotCollider.bounds.size.y + 1.4f;
+        _maxHeight = _spotCollider.bounds.size.x + 2.5f;
     }
 	
 	void Update ()
     {
         var origin = _projectorTransform.position;
-        var destination = _spotlightCollider.bounds.center;
+        var destination = _spotCollider.bounds.center;
         var difference = destination - origin;
         var desiredLength = difference.magnitude;
         var desiredHeight = (Mathf.Sin(difference.ToAngleInRadians()) * (_maxHeight - _minHeight)) + _minHeight; // leave the ugly math to me :)
@@ -44,27 +44,4 @@ public class Beam : MonoBehaviour {
     {
         return (vector1 + vector2) / 2; // Could reset pos.z... but who cares?
     } 
-}
-
-public static class VectorExtensions
-{
-    public static float ToAngleInRadians(this Vector2 vector)
-    {
-        return Mathf.Atan2(vector.y, vector.x);
-    }
-
-    public static float ToAngleInRadians(this Vector3 vector)
-    {
-        return ((Vector2)vector).ToAngleInRadians();
-    }
-
-    public static float ToAngleInDegrees(this Vector2 vector)
-    {
-        return vector.ToAngleInRadians() * Mathf.Rad2Deg;
-    }
-
-    public static Quaternion ToEulerRotation(this Vector3 vector)
-    {
-        return Quaternion.Euler(0f, 0f, ((Vector2)vector).ToAngleInDegrees());
-    }
 }
