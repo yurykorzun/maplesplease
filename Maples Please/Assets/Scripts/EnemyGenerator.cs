@@ -102,7 +102,93 @@ public class EnemyGenerator : MonoBehaviour {
 			y = 1f,
 			z = enemyInstance.transform.localScale.z
 		};
-        
-        return enemyInstance;
+
+        //   var vector = enemyInstance.Destination - enemyInstance.Origin;
+        //if (vector.ToAngleInDegrees() <= 15)
+        //{
+        //    enemyInstance.GetComponent<Animator>().SendMessage(@"GoForward");
+        //}
+        //   else if (enemyInstance.Origin.x < enemyInstance.Destination.x)
+        //{
+        //    enemyInstance.GetComponent<Animator>().SendMessage(@"GoRight");
+        //}
+        //else
+        //   {
+        //       enemyInstance.GetComponent<Animator>().SendMessage(@"GoLeft");
+        //   }
+
+        //if (Mathf.Abs(enemyInstance.Origin.x - enemyInstance.Destination.x) <= 2)
+        ////if (vector.ToAngleInDegrees() <= 5)
+        //{
+        //    enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoForward");
+        //}
+        //else if (enemyInstance.Origin.x < enemyInstance.Destination.x)
+        //{
+        //    enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoRight");
+        //}
+        //else
+        //{
+        //    enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoLeft");
+        //}
+
+        //   var next = Vector3.MoveTowards(enemyInstance.Origin, enemyInstance.Destination, 4 * Time.deltaTime);
+        //var deltaX = next.x - enemyInstance.Origin.x;
+
+        //if (deltaX < -0.01)
+        //   {
+        //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoLeft");
+        //   }
+        //   else if (deltaX >= 0.01)
+        //{
+        //    enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoRight");
+        //}
+        //else
+        //{
+        //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoForward");
+        //   }
+
+
+     //   var targetVector = enemyInstance.Destination - enemyInstance.Origin;
+     //   var angle = targetVector.ToAngleInDegrees();
+	    //if (angle <= -105f)
+	    //{
+     //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoRight");
+     //       //enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoLeft");
+     //   }
+     //   else if (angle >= -75f)
+	    //{
+     //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoLeft");
+     //       //enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoRight");
+     //   }
+	    //else
+	    //{
+     //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoForward");
+     //   }
+
+
+
+            //GetComponent<SpriteRenderer>().sprite = angle >= -90 && angle < 60 ? _rightSprite :
+            //                                        angle >= 50 && angle < 120 ? _centerSprite :
+            //                                        _leftSprite;
+
+            //   var dest = Camera.main.WorldToScreenPoint(enemyInstance.Destination);
+            //   var orig = Camera.main.WorldToScreenPoint(enemyInstance.Origin);
+            //var vectorFromOriginToDestination = dest - orig;
+            //   var angle = Vector2.Angle(transform.up * -1, vectorFromOriginToDestination);
+
+            //   if (angle <= 15)
+            //   {
+            //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoForward");
+            //   }
+            //   else if (orig.x < dest.x)
+            //   {
+            //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoLeft");
+            //   }
+            //   else
+            //   {
+            //       enemyInstance.gameObject.GetComponent<Animator>().SetTrigger(@"GoRight");
+            //   }
+
+            return enemyInstance;
 	}
 }

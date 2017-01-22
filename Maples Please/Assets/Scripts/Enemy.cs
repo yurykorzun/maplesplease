@@ -19,16 +19,38 @@ public class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		_enemyCounter = FindObjectOfType<EnemyCounter>();
-	}
+    }
 
-	private void OnEnable()
-	{
-		
-	}
+    void Start()
+    {
+        float step = Speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, Destination, step);
+
+
+
+
+        //var vector = Destination - Origin;
+        //if (vector.ToAngleInDegrees() <= 15)
+        //{
+        //    gameObject.GetComponent<Animator>().SendMessage(@"GoForward");
+        //}
+        //else if (Origin.x < Destination.x)
+        //{
+        //    gameObject.GetComponent<Animator>().SendMessage(@"GoRight");
+        //}
+        //else
+        //{
+        //    gameObject.GetComponent<Animator>().SendMessage(@"GoLeft");
+        //}
+    }
+
+    private void OnEnable()
+    {
+    }
 
 	void Update()
-	{
-		float step = Speed * Time.deltaTime;
+    {
+        float step = Speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, Destination, step);
 
 		// scale
@@ -42,6 +64,7 @@ public class Enemy : MonoBehaviour
 				Destination = Return;
 				_secondsWaiting = 0f;
 				_isInSpotlight = false;
+			    gameObject.GetComponent<Animator>().SetTrigger(@"GoBack");
 			}
 		}
 		else
