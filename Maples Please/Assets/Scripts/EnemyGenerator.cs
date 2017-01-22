@@ -8,7 +8,7 @@ public class EnemyGenerator : MonoBehaviour {
 	public GameRounds Rounds;
 	public Enemy EnemyPrefab;
 	public EnemyDestination Destination;
-	public EnemyDestination Return;
+	public EnemyReturn Return;
 
 	public EnemyCounter Counter;
 
@@ -63,6 +63,7 @@ public class EnemyGenerator : MonoBehaviour {
 			var enemyPosition = new Vector3(enemyXPosition, transform.position.y, 0f);
 			var enemy = CreateEnemy(enemyPosition);
 			enemy.AdjustScale();
+			enemy.name = "Enemy";
 			enemy.Destination = Destination.GetRandomDestination();
 			enemy.Speed = Rounds.GetSpeed();
 			enemy.Return = Return.GetRandomDestination();

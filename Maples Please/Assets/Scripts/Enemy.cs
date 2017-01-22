@@ -21,7 +21,11 @@ public class Enemy : MonoBehaviour
 		_enemyCounter = FindObjectOfType<EnemyCounter>();
 	}
 
-	// Use this for initialization
+	private void OnEnable()
+	{
+		
+	}
+
 	void Update()
 	{
 		float step = Speed * Time.deltaTime;
