@@ -14,6 +14,8 @@ public class Leaf : Bullet
         if (coll.gameObject.name == "Enemy")
         {
             coll.gameObject.SetActive(false);
+
+            // todo - fancy syrup explosion here.
         }
     }
 }

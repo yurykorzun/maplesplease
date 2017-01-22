@@ -22,13 +22,14 @@ public class Mountie : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay)
         {
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var vectorFromMountieToMouse = mousePosition - gameObject.transform.position;
+            var targetDirection = mousePosition - gameObject.transform.position;
+            var wasBulletFired = _puckGenerator.GenerateBullet(gameObject.transform.position, targetDirection);
 
-            if (_puckGenerator.GenerateBullet(gameObject.transform.position, vectorFromMountieToMouse))
+            if (wasBulletFired)
             {             
                 _timeOfLastAttack = DateTime.Now;
                         
-                var angle = Vector2.Angle(transform.up, vectorFromMountieToMouse);
+                var angle = Vector2.Angle(transform.up, targetDirection);
             
                 if (mousePosition.x < gameObject.transform.position.x)
                 {
