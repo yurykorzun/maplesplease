@@ -19,55 +19,68 @@ public class Mountie : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay)
+        if (Input.GetMouseButtonDown(0) && CanFire())
         {
-            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var targetDirection = mousePosition - gameObject.transform.position;
-            var wasBulletFired = _puckGenerator.GenerateBullet(gameObject.transform.position, targetDirection);
+            Fire(_puckGenerator);
+        }
+        else if (Input.GetMouseButtonDown(1) && CanFire())
+        {
+            Fire(_leafGenerator);
+        }
+    }
 
-            if (wasBulletFired)
-            {             
-                _timeOfLastAttack = DateTime.Now;
-                        
-                var angle = Vector2.Angle(transform.up, targetDirection);
-            
-                if (mousePosition.x < gameObject.transform.position.x)
+    private bool CanFire()
+    {
+        return (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay;
+    }
+
+    private void Fire(BulletGenerator bulletGenerator)
+    {
+        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var targetDirection = mousePosition - gameObject.transform.position;
+        var wasBulletFired = bulletGenerator.GenerateBullet(gameObject.transform.position, targetDirection);
+        if (wasBulletFired)
+        {
+            _timeOfLastAttack = DateTime.Now;
+
+            var angle = Vector2.Angle(transform.up, targetDirection);
+
+            if (mousePosition.x < gameObject.transform.position.x)
+            {
+                if (angle <= 22.5f)
                 {
-                    if (angle <= 22.5f)
-                    {
-                        _animator.SetTrigger("ClickNNW");
-                    }
-                    else if (angle <= 45f)
-                    {
-                        _animator.SetTrigger("ClickNW");
-                    }
-                    else if (angle <= 67.5f)
-                    {
-                        _animator.SetTrigger("ClickWNW");
-                    }
-                    else
-                    {
-                        _animator.SetTrigger("ClickW");
-                    }
+                    _animator.SetTrigger("ClickNNW");
+                }
+                else if (angle <= 45f)
+                {
+                    _animator.SetTrigger("ClickNW");
+                }
+                else if (angle <= 67.5f)
+                {
+                    _animator.SetTrigger("ClickWNW");
                 }
                 else
                 {
-                    if (angle <= 22.5f)
-                    {
-                        _animator.SetTrigger("ClickNNE");
-                    }
-                    else if (angle <= 45f)
-                    {
-                        _animator.SetTrigger("ClickNE");
-                    }
-                    else if (angle <= 67.5f)
-                    {
-                        _animator.SetTrigger("ClickENE");
-                    }
-                    else
-                    {
-                        _animator.SetTrigger("ClickE");
-                    }
+                    _animator.SetTrigger("ClickW");
+                }
+            }
+            else
+            {
+                if (angle <= 22.5f)
+                {
+                    _animator.SetTrigger("ClickNNE");
+                }
+                else if (angle <= 45f)
+                {
+                    _animator.SetTrigger("ClickNE");
+                }
+                else if (angle <= 67.5f)
+                {
+                    _animator.SetTrigger("ClickENE");
+                }
+                else
+                {
+                    _animator.SetTrigger("ClickE");
                 }
             }
         }
