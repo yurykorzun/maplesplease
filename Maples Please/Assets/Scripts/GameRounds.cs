@@ -27,6 +27,11 @@ public class GameRounds : MonoBehaviour {
 		HUDAttackManager.ResetGameValues();
 	}
 
+	private void Start()
+	{
+		if (RoundStarted != null) RoundStarted.Invoke(CurrentRoundNumber);
+	}
+
 	private void Update()
 	{
 		if (_isFinished) return;
