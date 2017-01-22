@@ -74,19 +74,12 @@ public class GameRounds : MonoBehaviour {
 		var roundedSeconds = Mathf.RoundToInt(_secondsElapsed);
 		HUDManager.SetSeconds(roundedSeconds, CurrentRound.LengthInSeconds);
 
-		// hide wave title after 3 seconds
-		if (HUDManager.RoundWaveTitle != null) {
-			if (roundedSeconds >= 3 && HUDManager.RoundWaveTitle.IsActive ()) {
-				HUDManager.RoundWaveTitle.gameObject.SetActive (false);
-			}
-		}
-
 		_secondsElapsed += Time.deltaTime;
 	}
 
 	private void StartNextRound() {
 		HUDManager.ResetRoundValues();
-		HUDManager.RoundWaveTitle.gameObject.SetActive(true);
+		HUDManager.ShowWave(CurrentRoundNumber);
 		HUDManager.SetRound(CurrentRoundNumber, Rounds.Length);
 
 		HUDAttackManager.ResetRoundValues();
