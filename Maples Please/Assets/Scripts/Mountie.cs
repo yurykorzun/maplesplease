@@ -8,6 +8,7 @@ public class Mountie : MonoBehaviour
     private Animator _animator;
     private BulletGenerator _puckGenerator;
     private BulletGenerator _leafGenerator;
+    private Vector3 _bulletSpawningPosition;
 	private DateTime _timeOfLastAttack = DateTime.MinValue;
     public float FireDelay;
     public AudioSource[] Sorries;
@@ -19,6 +20,7 @@ public class Mountie : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
         _puckGenerator = gameObject.GetComponentsInChildren<BulletGenerator>().Single(x => x.name == "PuckGenerator");
         _leafGenerator = gameObject.GetComponentsInChildren<BulletGenerator>().Single(x => x.name == "LeafGenerator");
+        _bulletSpawningPosition = gameObject.GetComponentsInChildren<Transform>().Single(x => x.name == "BulletSpawnLocation").position;
     }
 
     void Update()
@@ -56,8 +58,8 @@ public class Mountie : MonoBehaviour
     private void Fire(BulletGenerator bulletGenerator)
     {
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var targetDirection = mousePosition - gameObject.transform.position;
-        var wasBulletFired = bulletGenerator.GenerateBullet(gameObject.transform.position, targetDirection);
+        var targetDirection = mousePosition - _bulletSpawningPosition;
+        var wasBulletFired = bulletGenerator.GenerateBullet(_bulletSpawningPosition, targetDirection);
 
         if (wasBulletFired)
         {
