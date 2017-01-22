@@ -13,5 +13,6 @@ public class GameRound : MonoBehaviour
 
 	public int LengthInSeconds;
 	public int MaxMissedEnemies;
+	public int PucksLimit;
 }
 

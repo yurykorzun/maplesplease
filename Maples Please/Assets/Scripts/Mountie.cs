@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Mountie : MonoBehaviour
 {
+	public HUDAttackManager HUDAttack;
+	public GameRounds Rounds;
 	private List<Puck> _puckPool = new List<Puck>();
 
 	private DateTime _timeOfLastAttack = DateTime.MinValue;
@@ -14,9 +16,24 @@ public class Mountie : MonoBehaviour
 
     public Puck Puck;
 
+	private int _pucksCreated;
+
+	private void Awake()
+	{
+		Rounds.RoundStarted += RoundStarted;
+	}
+
+	void RoundStarted(int round)
+	{
+		_pucksCreated = 0;
+		HUDAttack.SetPucks(Rounds.CurrentRound.PucksLimit);
+	}
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay)
+		var pucksAvailable = _pucksCreated < Rounds.CurrentRound.PucksLimit;
+		
+		if (pucksAvailable && Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay)
         {
             _timeOfLastAttack = DateTime.Now;
             
@@ -85,6 +102,9 @@ public class Mountie : MonoBehaviour
 			puckInstance.gameObject.SetActive(true);
 		}
 		puckInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(vectorFromMountieToMouse.x, vectorFromMountieToMouse.y).normalized * AttackPower;
+
+		_pucksCreated++;
+		HUDAttack.SetPucks(Rounds.CurrentRound.PucksLimit - _pucksCreated);
 
 		return puckInstance;
 	}
