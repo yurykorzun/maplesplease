@@ -18,6 +18,6 @@ public class StartButton : MonoBehaviour
         StartNoise.enabled = true;
         StartNoise.Play();
         yield return new WaitForSeconds(1);
-        LevelManager.LoadLevel("Playground");
+        LevelManager.LoadLevel("IntroStory");
     }
 }
