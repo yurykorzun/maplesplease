@@ -21,7 +21,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         if ((DateTime.Now - _startTime).TotalMilliseconds >= _timeToWait)
         {
-            var startButton = Instantiate(StartButton, new Vector3(Camera.main.pixelWidth / 2f, Camera.main.pixelHeight / 4f, -1f), new Quaternion());
+            var startButton = Instantiate(StartButton, new Vector3(Camera.main.pixelWidth * 0.7f, Camera.main.pixelHeight * 0.18f, -1f), new Quaternion());
             startButton.transform.SetParent(Canvas.transform);
             startButton.LevelManager = LevelManager;
             startButton.BGMusic = BGMusic;
