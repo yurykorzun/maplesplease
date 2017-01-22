@@ -23,7 +23,16 @@ public class Enemy : MonoBehaviour
 		_enemyCounter = FindObjectOfType<EnemyCounter>();
 	}
 
-	// Use this for initialization
+	private void OnEnable()
+	{
+		transform.localScale = new Vector3
+		{
+			x = 1f,
+			y = 1f,
+			z = transform.localScale.z
+		};
+	}
+
 	void Update()
 	{
 		float step = Speed * Time.deltaTime;
