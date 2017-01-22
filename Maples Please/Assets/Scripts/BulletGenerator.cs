@@ -19,6 +19,7 @@ public class BulletGenerator : MonoBehaviour
     {
         _bulletsFired = 0;
         HUDAttack.SetPucks(Rounds.CurrentRound.PucksLimit);
+        HUDAttack.SetLeafs(Rounds.CurrentRound.LeafsLimit);
     }
 
     public bool GenerateBullet(Vector3 position, Vector2 vectorFromMountieToMouse)
