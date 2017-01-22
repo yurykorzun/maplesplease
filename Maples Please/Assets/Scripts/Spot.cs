@@ -1,18 +1,12 @@
 ﻿using UnityEngine;
 
-public class Spotlight : MonoBehaviour {
+public class Spot : MonoBehaviour {
 
 	// drag/smooth time for the spotlight
 	public float FloatTime = .05F;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
+    	
+	void Update ()
+    {
 		// Get the mouse position
 		var mousePos = Input.mousePosition;
 
@@ -20,14 +14,11 @@ public class Spotlight : MonoBehaviour {
 		checkBounds(ref mousePos);
 
 		// update spotlight position
-		updateSpotlightPosition(mousePos);
-
-		// detect enemy
-		detectEnemy();
+		updateSpotlightPosition(mousePos);        
 	}
 
-	void checkBounds(ref Vector3 mousePos) {
-
+	void checkBounds(ref Vector3 mousePos)
+    {
 		// Get the camera position
 		var cameraPos = Camera.main.pixelRect;
 
@@ -38,8 +29,8 @@ public class Spotlight : MonoBehaviour {
 		mousePos.y = Mathf.Clamp(mousePos.y, cameraPos.yMin, cameraPos.yMax);
 	}
 
-	void updateSpotlightPosition(Vector3 mousePos) {
-
+	void updateSpotlightPosition(Vector3 mousePos)
+    {
 		// Get a vector for the Camera from the mouse position
 		Vector3 pz = Camera.main.ScreenToWorldPoint(mousePos);
 		pz.z = this.transform.position.z;
@@ -47,9 +38,5 @@ public class Spotlight : MonoBehaviour {
 		// Update the transform with the mouse position
 		Vector3 velocity = new Vector3();
 		this.transform.position = Vector3.SmoothDamp(this.transform.position, pz, ref velocity, FloatTime);
-	}
-
-	void detectEnemy() {
-
 	}
 }
