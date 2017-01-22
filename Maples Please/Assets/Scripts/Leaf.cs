@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class Leaf : Bullet
@@ -16,8 +17,14 @@ public class Leaf : Bullet
         _sprite = GetComponent<Sprite>();
 		_splatSound = gameObject.GetComponentsInChildren<AudioSource>().Single(x => x.name == "Splat");
     }
+	private IEnumerator DestroyDelayed()
+	{
+		yield return new WaitForSeconds(9f);
 
-    private void Update()
+		gameObject.SetActive(false);
+	}
+
+	private void Update()
     {
         transform.Rotate(new Vector3(0, 0, RotationSpeed));
     }
@@ -47,5 +54,7 @@ public class Leaf : Bullet
 
 		_splatSound.enabled = true;
 		_splatSound.Play();
-    }
+
+		StartCoroutine(DestroyDelayed());
+	}
 }
