@@ -102,7 +102,7 @@ public class EnemyGenerator : MonoBehaviour {
 			y = 1f,
 			z = enemyInstance.transform.localScale.z
 		};
-
-		return enemyInstance;
+        
+        return enemyInstance;
 	}
 }

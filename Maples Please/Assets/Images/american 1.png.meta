@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: 4a72eb2921cc15c478526d450eaf2a0c
+timeCreated: 1485050636
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: american 1_0
+    21300002: american 1_1
+    21300004: american 1_2
+    21300006: american 1_3
+    21300008: american 1_4
+    21300010: american 1_5
+    21300012: american 1_6
+    21300014: american 1_7
+    21300016: american 1_8
+    21300018: american 1_9
+    21300020: american 1_10
+    21300022: american 1_11
+    21300024: american 1_12
+    21300026: american 1_13
+    21300028: american 1_14
+    21300030: american 1_15
+    21300032: american 1_16
+    21300034: american 1_17
+    21300036: american 1_18
+    21300038: american 1_19
+    21300040: american 1_20
+    21300042: american 1_21
+    21300044: american 1_22
+    21300046: american 1_23
+    21300048: american 1_24
+    21300050: american 1_25
+    21300052: american 1_26
+    21300054: american 1_27
+    21300056: american 1_28
+    21300058: american 1_29
+    21300060: american 1_30
+    21300062: american 1_31
+    21300064: american 1_32
+    21300066: american 1_33
+    21300068: american 1_34
+    21300070: american 1_35
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: american 1_0
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 3053
+        width: 184
+        height: 259
+      alignment: 9
+      pivot: {x: 0.6718244, y: 0.52034473}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_1
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 3059
+        width: 189
+        height: 262
+      alignment: 9
+      pivot: {x: 0.5836398, y: 0.49329638}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_2
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 3071
+        width: 174
+        height: 246
+      alignment: 9
+      pivot: {x: 0.43943417, y: 0.47144052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_3
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 3080
+        width: 168
+        height: 227
+      alignment: 9
+      pivot: {x: 0.39545113, y: 0.47678837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_4
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 3086
+        width: 163
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_5
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 2666
+        width: 160
+        height: 225
+      alignment: 9
+      pivot: {x: 0.43413392, y: 0.40632486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_6
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 2860
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_7
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 2673
+        width: 157
+        height: 199
+      alignment: 9
+      pivot: {x: 0.43287534, y: 0.43821648}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_8
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 2671
+        width: 181
+        height: 193
+      alignment: 9
+      pivot: {x: 0.36414385, y: 0.46359774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_9
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 2656
+        width: 202
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_10
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 2641
+        width: 173
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_11
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 2234
+        width: 132
+        height: 242
+      alignment: 9
+      pivot: {x: 0.4733875, y: 0.5725804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_12
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 2236
+        width: 147
+        height: 235
+      alignment: 9
+      pivot: {x: 0.3685668, y: 0.55979365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_13
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 2238
+        width: 147
+        height: 238
+      alignment: 9
+      pivot: {x: 0.54756755, y: 0.5587599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_14
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 2240
+        width: 114
+        height: 238
+      alignment: 9
+      pivot: {x: 0.5817828, y: 0.5587599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_15
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 2238
+        width: 128
+        height: 238
+      alignment: 9
+      pivot: {x: 0.48179054, y: 0.56855327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_16
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 1865
+        width: 167
+        height: 254
+      alignment: 9
+      pivot: {x: 0.5558278, y: 0.5734118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_17
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1873
+        width: 173
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5134729, y: 1.034144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_18
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1394
+        width: 180
+        height: 263
+      alignment: 9
+      pivot: {x: 0.6883189, y: 0.522745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_19
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1401
+        width: 205
+        height: 268
+      alignment: 9
+      pivot: {x: 0.5680863, y: 0.4925601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_20
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 1412
+        width: 170
+        height: 235
+      alignment: 9
+      pivot: {x: 0.406166, y: 0.5169704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_21
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 1420
+        width: 163
+        height: 219
+      alignment: 9
+      pivot: {x: 0.3899038, y: 0.5091051}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_22
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 1425
+        width: 151
+        height: 221
+      alignment: 9
+      pivot: {x: 0.3547436, y: 0.47293243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_23
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 968
+        width: 130
+        height: 239
+      alignment: 9
+      pivot: {x: 0.37729445, y: 0.4165703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_24
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 966
+        width: 129
+        height: 226
+      alignment: 9
+      pivot: {x: 0.39180028, y: 0.4470631}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_25
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 963
+        width: 140
+        height: 222
+      alignment: 9
+      pivot: {x: 0.3433306, y: 0.46407282}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_26
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 951
+        width: 145
+        height: 236
+      alignment: 9
+      pivot: {x: 0.47249714, y: 0.50000054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_27
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 942
+        width: 109
+        height: 243
+      alignment: 9
+      pivot: {x: 0.5182926, y: 0.5492335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_28
+      rect:
+        serializedVersion: 2
+        x: 1917
+        y: 1150
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_29
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 526
+        width: 116
+        height: 249
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55605525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_30
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 531
+        width: 127
+        height: 242
+      alignment: 9
+      pivot: {x: 0.48429954, y: 0.5411977}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_31
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 531
+        width: 128
+        height: 246
+      alignment: 9
+      pivot: {x: 0.45326614, y: 0.54052806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_32
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 527
+        width: 122
+        height: 248
+      alignment: 9
+      pivot: {x: 0.48365557, y: 0.5482417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_33
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 526
+        width: 112
+        height: 249
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5480474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_34
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 138
+        width: 146
+        height: 247
+      alignment: 9
+      pivot: {x: 0.63657284, y: 0.57265484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: american 1_35
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 140
+        width: 172
+        height: 122
+      alignment: 9
+      pivot: {x: 0.6275209, y: 1.1047279}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
