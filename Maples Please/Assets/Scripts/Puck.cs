@@ -1,8 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Puck : MonoBehaviour {
+public class Puck : Bullet
+{
+    public override Bullet CloneInstance()
+    {
+        var instance = Instantiate(this, gameObject.transform.position, Quaternion.identity);
+        instance.name = "Puck";
+        return instance;
+    }
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
