@@ -1,11 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Mountie : MonoBehaviour
 {
+    private DateTime _timeOfLastAttack = DateTime.MinValue;
+
+    public int AttackPower;
+    public float FireRate;
+
+    public Rigidbody2D Puck;
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireRate)
         {
+            _timeOfLastAttack = DateTime.Now;
+            
             var animator = gameObject.GetComponent<Animator>();
             
             var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Input.mousePosition;
@@ -13,6 +23,9 @@ public class Mountie : MonoBehaviour
             var vectorFromMountieToMouse = mousePosition - gameObject.transform.position;
             var angle = Vector2.Angle(transform.up, vectorFromMountieToMouse);
             
+            var puck = Instantiate(Puck, gameObject.transform.position, new Quaternion());
+            puck.velocity = new Vector2(vectorFromMountieToMouse.x, vectorFromMountieToMouse.y).normalized * AttackPower;
+
             if (mousePosition.x < gameObject.transform.position.x)
             {
                 if (angle <= 22.5f)

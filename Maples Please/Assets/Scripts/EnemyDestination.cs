@@ -7,7 +7,7 @@ public class EnemyDestination : MonoBehaviour {
 	public EnemyCounter Counter;
 	private BoxCollider2D _boxCollider;
 
-	public void Start()
+	public void Awake()
 	{
 		_boxCollider = GetComponent<BoxCollider2D>();
 	}
