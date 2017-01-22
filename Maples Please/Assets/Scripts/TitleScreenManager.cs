@@ -1,15 +1,16 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TitleScreenManager : MonoBehaviour
 {
     private float _timeToWait = 1000;
     private DateTime _startTime;
 
-    public GameObject StartButton;
+    public StartButton StartButton;
     public Canvas Canvas;
     public LevelManager LevelManager;
+    public AudioSource BGMusic;
+    public AudioSource StartNoise;
 
     void Start()
     {
@@ -20,9 +21,11 @@ public class TitleScreenManager : MonoBehaviour
     {
         if ((DateTime.Now - _startTime).TotalMilliseconds >= _timeToWait)
         {
-            var startButton = Instantiate(StartButton, new Vector3(400f, 150f, -1f), new Quaternion());
+            var startButton = Instantiate(StartButton, new Vector3(Camera.main.pixelWidth / 2f, Camera.main.pixelHeight / 4f, -1f), new Quaternion());
             startButton.transform.SetParent(Canvas.transform);
-            startButton.GetComponent<Button>().onClick.AddListener(delegate() { LevelManager.LoadLevel("Playground"); });
+            StartButton.LevelManager = LevelManager;
+            StartButton.BGMusic = BGMusic;
+            StartButton.StartNoise = StartNoise;
 
             Destroy(this);
         }
