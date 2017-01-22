@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 	public Vector3 Origin;
 	public Vector3 Destination;
 	public Vector3 Return;
-	
+
 	private bool _isInSpotlight;
 	private float _secondsWaiting;
 	private EnemyCounter _enemyCounter;
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 
 	public void AdjustScale() {
 
-		float distance = Vector3.Distance(transform.position, Origin);
+		float distance = transform.position.y - Origin.y;
 		float scale = (distance * _scaleFactor);
 
 		// update the scale of the enemy based on their position toward the destination

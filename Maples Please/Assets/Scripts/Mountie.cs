@@ -1,18 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Mountie : MonoBehaviour
 {
-    private DateTime _timeOfLastAttack = DateTime.MinValue;
+	private List<Puck> _puckPool = new List<Puck>();
+
+	private DateTime _timeOfLastAttack = DateTime.MinValue;
 
     public int AttackPower;
-    public float FireRate;
+    public float FireDelay;
 
-    public Rigidbody2D Puck;
+    public Puck Puck;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireRate)
+        if (Input.GetMouseButtonDown(0) && (DateTime.Now - _timeOfLastAttack).TotalMilliseconds >= FireDelay)
         {
             _timeOfLastAttack = DateTime.Now;
             
@@ -22,9 +26,8 @@ public class Mountie : MonoBehaviour
 
             var vectorFromMountieToMouse = mousePosition - gameObject.transform.position;
             var angle = Vector2.Angle(transform.up, vectorFromMountieToMouse);
-            
-            var puck = Instantiate(Puck, gameObject.transform.position, new Quaternion());
-            puck.velocity = new Vector2(vectorFromMountieToMouse.x, vectorFromMountieToMouse.y).normalized * AttackPower;
+
+			var puck = CreateEnemy(gameObject.transform.position, vectorFromMountieToMouse);
 
             if (mousePosition.x < gameObject.transform.position.x)
             {
@@ -66,4 +69,23 @@ public class Mountie : MonoBehaviour
             }
         }
     }
+
+	private Puck CreateEnemy(Vector3 position, Vector2 vectorFromMountieToMouse)
+	{
+		var puckInstance = _puckPool.Where(x => !x.gameObject.activeSelf).FirstOrDefault();
+		if (puckInstance == null)
+		{
+			puckInstance = Instantiate<Puck>(Puck, gameObject.transform.position, Quaternion.identity);
+			puckInstance.name = "Puck";
+			_puckPool.Add(puckInstance);
+		}
+		else
+		{
+			puckInstance.transform.position = position;
+			puckInstance.gameObject.SetActive(true);
+		}
+		puckInstance.GetComponent<Rigidbody2D>().velocity = new Vector2(vectorFromMountieToMouse.x, vectorFromMountieToMouse.y).normalized * AttackPower;
+
+		return puckInstance;
+	}
 }

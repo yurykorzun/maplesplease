@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDestination : EnemyDespawner
-{
+public class PuckCapture : MonoBehaviour {
+
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		if (coll.gameObject.name == "Enemy")
+		if (coll.gameObject.name == "Puck")
 		{
-			Counter.CountMissed();
-
 			coll.gameObject.SetActive(false);
 		}
 	}

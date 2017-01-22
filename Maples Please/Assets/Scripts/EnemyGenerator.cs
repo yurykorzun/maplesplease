@@ -95,6 +95,14 @@ public class EnemyGenerator : MonoBehaviour {
 			enemyInstance.gameObject.SetActive(true);
 		}
 
+
+		enemyInstance.transform.localScale = new Vector3
+		{
+			x = 1f,
+			y = 1f,
+			z = enemyInstance.transform.localScale.z
+		};
+
 		return enemyInstance;
 	}
 }
