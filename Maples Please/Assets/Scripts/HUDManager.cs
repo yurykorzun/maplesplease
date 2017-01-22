@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
@@ -8,7 +9,7 @@ public class HUDManager : MonoBehaviour
 	public Text MissedValue;
 	public Text SecondsValue;
 	public Text RoundValue;
-	public Text RoundWaveTitle;
+	public WaveNumbers RoundWave;
 	public Text MoneyUSDValue;
 	public Text MoneyCADValue;
 
@@ -63,8 +64,22 @@ public class HUDManager : MonoBehaviour
 	public void SetRound(int roundNumber, int totalRounds)
 	{
 		RoundValue.text = string.Format("{0}/{1}", roundNumber, totalRounds);
-		RoundWaveTitle.text = string.Format("Wave {0}", roundNumber);
+		//RoundWaveTitle.text = string.Format("Wave {0}", roundNumber);
 	}
+
+	public void ShowWave(int roundNumber)
+	{
+		StartCoroutine(ShowAndHideDelayed(roundNumber));		
+	}
+
+	private IEnumerator ShowAndHideDelayed(int roundNumber)
+	{
+		RoundWave.ShowWave(roundNumber);
+
+		yield return new WaitForSeconds(1.5f);
+
+		RoundWave.HideWave();
+	} 
 
 	public void SetSeconds(int seconds, int totalSeconds)
 	{
