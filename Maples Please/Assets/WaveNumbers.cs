@@ -18,10 +18,23 @@ public class WaveNumbers : MonoBehaviour {
 		});
 
 		Values[number - 1].gameObject.SetActive(true);
+
+		StartCoroutine(UpdateScale());
+	}
+
+	public IEnumerator UpdateScale()
+	{
+		transform.localScale = new Vector3(transform.localScale.x + 0.005f, transform.localScale.y + 0.005f, 1f);
+
+		yield return new WaitForSeconds(0.2f);
+
+		StartCoroutine(UpdateScale());
 	}
 
 	public void HideWave()
 	{
+		StopAllCoroutines();
+		transform.localScale = new Vector3(1f, 1f, 1f);
 		WaveTitle.gameObject.SetActive(false);
 
 		Array.ForEach(Values, x =>
