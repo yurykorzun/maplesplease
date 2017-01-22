@@ -11,6 +11,8 @@ public class GameComplete : MonoBehaviour {
 	public Text TotalCapturedValue;
 	public Text TotalMissedValue;
 
+    public GameStats GameStats;
+
 	private void Awake()
 	{
 		GameOverLabel.gameObject.SetActive(false);
@@ -22,20 +24,28 @@ public class GameComplete : MonoBehaviour {
 
 	public void ShowGameOver(int totalCaptured, int totalMissed)
 	{
-		GameOverLabel.gameObject.SetActive(true);
-		GameCompletedLabel.gameObject.SetActive(false);
+	    GameStats.UpdateGameStats(totalCaptured, totalMissed);
 
-		TotalMissedValue.text = totalMissed.ToString();
-		TotalCapturedValue.text = totalCaptured.ToString();
-	}
+        SceneManager.LoadScene("Defeat");
+
+        //      GameOverLabel.gameObject.SetActive(true);
+        //GameCompletedLabel.gameObject.SetActive(false);
+
+        //TotalMissedValue.text = totalMissed.ToString();
+        //TotalCapturedValue.text = totalCaptured.ToString();
+    }
 
 	public void ShowGameCompleted(int totalCaptured, int totalMissed)
-	{
-		GameOverLabel.gameObject.SetActive(false);
-		GameCompletedLabel.gameObject.SetActive(true);
+    {
+        GameStats.UpdateGameStats(totalCaptured, totalMissed);
 
-		TotalMissedValue.text = totalMissed.ToString();
-		TotalCapturedValue.text = totalCaptured.ToString();
+        SceneManager.LoadScene("Victory");
+
+  //      GameOverLabel.gameObject.SetActive(false);
+		//GameCompletedLabel.gameObject.SetActive(true);
+
+		//TotalMissedValue.text = totalMissed.ToString();
+		//TotalCapturedValue.text = totalCaptured.ToString();
 	}
 
 	public void StartOver()
